@@ -56,13 +56,21 @@ class TicketsController extends Controller
             'message' => $request->input('message'),
             'status' => "Open",
         ]);
-
+        if  (request()->file('file_field')) {
             $ticket->file_src = request()->file('file_field')->getClientOriginalName();
             request()->file('file_field')->move('ticket/' . $ticket->id, $ticket->file_src);
+        }
 
         $ticket->save();
 
+
         return redirect()->back()->with("status", "A ticket with ID: #$ticket->ticket_id has been opened.");
+    }
+
+    public function getFile($file_src)
+    {
+        $ticket = Ticket::where('file_src', $file_src)->firstOrFail();
+        return view('tickets.show', compact('ticket'));
     }
 
     public function show($ticket_id)

@@ -21,6 +21,7 @@ Route::get('new_ticket', 'TicketsController@create');
 Route::post('new_ticket', 'TicketsController@store');
 
 Route::get('tickets/{ticket_id}', 'TicketsController@show');
+Route::get('tickets/{ticket_id}/{file_src}', 'TicketsController@getFile');
 Route::get('my_tickets', 'TicketsController@userTickets');
 
 Route::post('comment', 'CommentsController@postComment');

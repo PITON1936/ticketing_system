@@ -7,6 +7,7 @@ use App\Ticket;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 class TicketsController extends Controller
 {
     public function __construct()
@@ -67,10 +68,15 @@ class TicketsController extends Controller
         return redirect()->back()->with("status", "A ticket with ID: #$ticket->ticket_id has been opened.");
     }
 
-    public function getFile($file_src)
+    public function getFile()
     {
-        $ticket = Ticket::where('file_src', $file_src)->firstOrFail();
-        return view('tickets.show', compact('ticket'));
+        $file = public_path(). 'ticket/file_src';
+
+        $headers = array(
+            'Content-Type: application/jpg|ini|pdf|png',
+        );
+
+        return response()->download($file, 'ticket/file_src', $headers);
     }
 
     public function show($ticket_id)

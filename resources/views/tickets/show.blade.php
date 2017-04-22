@@ -24,7 +24,7 @@
                             @endif
                         </p>
                         @if(isset($ticket->file_src))
-                            <a href="{{asset('/app/ticket/'.$ticket->id .'/'. $ticket->file_src)}}">Attached file</a>
+                            <a href="{{'/ticket/'. $ticket->file_src}}">Attached file</a>
                         @endif
                         <p>Created on: {{ $ticket->created_at->diffForHumans() }}</p>
                     </div>

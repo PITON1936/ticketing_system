@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 22 2017 г., 03:04
+-- Время создания: Апр 23 2017 г., 14:59
 -- Версия сервера: 5.7.13
 -- Версия PHP: 5.6.23
 
@@ -56,7 +56,20 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `comment` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `ticket_id`, `user_id`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 4, 1, 'Hello!', '2017-04-23 08:52:28', '2017-04-23 08:52:28'),
+(2, 3, 1, 'Ohh... Im tired too...', '2017-04-23 08:53:09', '2017-04-23 08:53:09'),
+(3, 1, 1, 'Ok, how can i help you?', '2017-04-23 08:54:56', '2017-04-23 08:54:56'),
+(4, 1, 3, 'Morbi iaculis lectus magna, in aliquet nunc blandit a. Maecenas eu ante a velit fringilla ultricies ac ac dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget eros vitae leo vestibulum consectetur a sit amet lorem. Nulla malesuada condimentum urna egestas efficitur.', '2017-04-23 08:56:27', '2017-04-23 08:56:27'),
+(5, 4, 3, 'Aenean finibus sagittis orci, in sodales nibh laoreet quis. Quisque ante ipsum, maximus ut aliquam quis, sollicitudin sed massa. Donec ac nisi placerat, placerat justo a, ullamcorper eros. Proin id hendrerit turpis.', '2017-04-23 08:57:00', '2017-04-23 08:57:00'),
+(6, 2, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt velit at nisi semper eleifend. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in interdum odio. Proin in turpis nibh. Maecenas feugiat dolor a aliquet tincidunt. Suspendisse volutpat commodo libero, ac commodo velit placerat nec.', '2017-04-23 08:58:57', '2017-04-23 08:58:57'),
+(7, 2, 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt velit at nisi semper eleifend. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in interdum odio. Proin in turpis nibh. Maecenas feugiat dolor a aliquet tincidunt. Suspendisse volutpat commodo libero, ac commodo velit placerat nec.', '2017-04-23 08:59:23', '2017-04-23 08:59:23');
 
 -- --------------------------------------------------------
 
@@ -111,7 +124,17 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   `file_src` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `tickets`
+--
+
+INSERT INTO `tickets` (`id`, `user_id`, `category_id`, `ticket_id`, `title`, `priority`, `message`, `status`, `file_src`, `created_at`, `updated_at`) VALUES
+(1, 3, 4, '5FOU7L1GSC', 'Testtest', 'medium', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt velit at nisi semper eleifend. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in interdum odio. Proin in turpis nibh. Maecenas feugiat dolor a aliquet tincidunt. Suspendisse volutpat commodo libero, ac commodo velit placerat nec. Duis eget mattis mauris. Maecenas accumsan, est vitae ultrices blandit, dolor ante ultrices nulla, sit amet efficitur velit lorem quis purus. Morbi lacinia sem quis nisl efficitur, ac malesuada orci pharetra. Proin volutpat ipsum vulputate nisl fringilla, quis lacinia ante pellentesque.', 'Open', 'f4ef94d62af71befa0e8b410cf73a18c_view.jpg', '2017-04-23 08:44:46', '2017-04-23 08:44:46'),
+(2, 3, 4, 'CP0VTGZUVO', 'New trouble', 'high', 'Morbi iaculis lectus magna, in aliquet nunc blandit a. Maecenas eu ante a velit fringilla ultricies ac ac dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget eros vitae leo vestibulum consectetur a sit amet lorem. Nulla malesuada condimentum urna egestas efficitur. Morbi accumsan vehicula erat, a sollicitudin elit iaculis eget. Fusce sed accumsan nulla. Pellentesque hendrerit lorem ipsum, quis gravida turpis volutpat at. Donec leo metus, sagittis ac finibus vulputate, porta venenatis eros. Nam congue molestie orci vitae ', 'Open', 'images 2.jpg', '2017-04-23 08:45:10', '2017-04-23 08:45:10'),
+(3, 3, 1, 'UAZFH2WXRC', 'Ohh.. im really tired...', 'low', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt velit at nisi semper eleifend. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in interdum odio. Proin in turpis nibh. Maecenas feugiat dolor a aliquet tincidunt. Suspendisse volutpat commodo libero, ac commodo velit placerat nec. Duis eget mattis mauris. Maecenas accumsan, est vitae ultrices blandit, dolor ante ultrices nulla, sit amet efficitur velit lorem quis purus. Morbi lacinia sem quis nisl efficitur, ac malesuada orci pharetra. Proin volutpat ipsum vulputate nisl fringilla, quis lacinia ante pellentesque.', 'Open', 'images.jpg', '2017-04-23 08:46:29', '2017-04-23 08:46:29'),
+(4, 3, 2, 'WPA4HWNZUR', 'This is troubleshoot without file', 'high', 'Hi!', 'Open', NULL, '2017-04-23 08:47:04', '2017-04-23 08:47:04');
 
 -- --------------------------------------------------------
 
@@ -135,9 +158,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `is_admin`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@admin.com', '$2y$10$5kxEvjN03T9Hf6Ix2MjVTexTzhsRUjvSHBctFb8cfKRxGIOFYmvKG', 1, 'ANSqlzmbVnwJxKitRmlT4Yz48Jgyk1fDqivl2guPsOipa6FAztJBxn4WN3YN', '2017-04-21 18:00:22', '2017-04-21 18:00:22'),
-(2, 'Vova', 'vovik1@gmail.com', '$2y$10$uif.LKO9IYVrr4rMewOj7.f4OPfwHBtEwJdSNZ.USybHNENqg/4NC', 0, 'V3qCaH8drTRr6oDOpnlh2B56FRSAhn5p73wu3dgmQKYa7YVB93KRM8X9CNEy', '2017-04-21 18:04:20', '2017-04-21 18:04:20'),
-(3, 'Test', 'test@test.com', '$2y$10$/Z9mwFhR4FRHMN1NfHmJY.4ftHwvGap19ZESblhNPNMp4238eS.IG', 0, NULL, '2017-04-21 18:04:38', '2017-04-21 18:04:38');
+(1, 'Admin', 'admin@admin.com', '$2y$10$5kxEvjN03T9Hf6Ix2MjVTexTzhsRUjvSHBctFb8cfKRxGIOFYmvKG', 1, 'mDLXkXtvWdUqexxo7UKlvjns5o9zjhRZIMCnJgzh2a0q9nGfNHFtmm3log5B', '2017-04-21 18:00:22', '2017-04-21 18:00:22'),
+(2, 'Vova', 'vovik1@gmail.com', '$2y$10$uif.LKO9IYVrr4rMewOj7.f4OPfwHBtEwJdSNZ.USybHNENqg/4NC', 0, 'ScZyiglwCtoAIlBLM7TXioMUqZzgjShBYc9FPTkoVdVT8EFZafcxkmyxlBHe', '2017-04-21 18:04:20', '2017-04-21 18:04:20'),
+(3, 'Test', 'test@test.com', '$2y$10$/Z9mwFhR4FRHMN1NfHmJY.4ftHwvGap19ZESblhNPNMp4238eS.IG', 0, 'dVbTZtK1VuLW0wwsYharR5O9jooLwyu2E0anefW3WFLLNABGtO4e5XwuoyaK', '2017-04-21 18:04:38', '2017-04-21 18:04:38');
 
 --
 -- Индексы сохранённых таблиц
@@ -193,7 +216,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT для таблицы `migrations`
 --
@@ -203,7 +226,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT для таблицы `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT для таблицы `users`
 --

@@ -21,7 +21,6 @@
                                 <th>Title</th>
                                 <th>Status</th>
                                 <th>Last Updated</th>
-                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
